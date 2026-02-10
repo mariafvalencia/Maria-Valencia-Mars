@@ -1,44 +1,105 @@
 body {
-  background-color: #f4f6fb;
-  color: #333;
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #e9f0ff 0%, #f4f7ff 100%);
+  color: #1f2a44;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   margin: 0;
-  padding: 20px;
+  padding: 24px;
 }
 
+/* Sticky header — stretch goal */
+header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+  border-bottom: 1px solid #e3e9ff;
+  padding: 16px;
+  border-radius: 0 0 14px 14px;
+}
+
+/* Main title */
 h1 {
-  font-size: 2.5rem;
-  color: #4a4aff;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.6rem;
+  color: #2f5bff;
   text-align: center;
+  letter-spacing: 0.5px;
+  margin: 0 0 10px 0;
 }
 
+/* Section titles */
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  color: #2f5bff;
+  margin-top: 0;
+}
+
+/* Navigation — third font */
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  padding: 0;
+  margin: 10px 0 0 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+}
+
+.nav-list a {
+  background-color: #eef2ff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #dbe4ff;
+  text-decoration: none;
+  color: #2f5bff;
+  font-weight: 500;
+}
+
+/* Sections */
 section {
   background-color: white;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
+  padding: 22px;
+  margin: 22px 0;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(47, 91, 255, 0.08);
+  border: 1px solid #e3e9ff;
 }
 
-h2 {
-  font-size: 1.5rem;
-  color: #222;
-}
-
+/* Lists */
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 ul li {
-  background-color: #eef0ff;
+  background: linear-gradient(180deg, #f3f6ff 0%, #e9eeff 100%);
   margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #dde5ff;
 }
 
+/* Links */
 a {
-  color: #4a4aff;
-  font-weight: bold;
+  color: #2f5bff;
+  font-weight: 600;
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
+/* Connect section — flex layout */
+#connect ul {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+#connect ul li {
+  margin-bottom: 0;
+}
