@@ -1,5 +1,7 @@
 const GITHUB_USERNAME = "mariafvalencia";
-const projectsList = document.querySelector("#projects-list");
+
+const projectSection = document.querySelector("#projects");
+const projectList = projectSection.querySelector("#projects-list");
 
 fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
   .then((response) => {
@@ -9,30 +11,22 @@ fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
     return response.json();
   })
   .then((data) => {
-    const repositories = data; // <-- required variable name
-    console.log(repositories); // <-- required console.log
+    const repositories = data; 
+    console.log(repositories); 
 
-    // Clear anything inside the list (just in case)
-    projectsList.innerHTML = "";
+    projectList.innerHTML = "";
 
-    // Sort repos by most recently updated (nice touch)
-    repositories
-      .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
-      .forEach((repo) => {
-        const li = document.createElement("li");
+    for (let i = 0; i < repositories.length; i++) {
+      const repo = repositories[i];
 
-        const link = document.createElement("a");
-        link.href = repo.html_url;
-        link.target = "_blank";
-        link.rel = "noreferrer";
-        link.textContent = repo.name;
+      const li = document.createElement("li");
+      li.textContent = repo.name;
 
-        li.appendChild(link);
-        projectsList.appendChild(li);
-      });
+      projectList.appendChild(li);
+    }
   })
   .catch((error) => {
     console.error("Error fetching repositories:", error);
-
-    projectsList.innerHTML = `<li>Sorry — I couldn't load projects right now.</li>`;
+    projectList.innerHTML = "<li>Sorry — projects could not load right now.</li>";
   });
+
