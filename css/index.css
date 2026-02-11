@@ -1,41 +1,38 @@
 body {
-  background: linear-gradient(180deg, #e9f0ff 0%, #f4f7ff 100%);
-  color: #1f2a44;
+  background: linear-gradient(180deg, #ac8eae 0%, #775586 100%);
+  color: #daa5e2;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 24px;
 }
 
-/* Sticky header — stretch goal */
 header {
   position: sticky;
   top: 0;
-  background: white;
+  background: rgb(234, 201, 239);
   z-index: 10;
-  border-bottom: 1px solid #e3e9ff;
+  border-bottom: 1px solid #c365bd;
   padding: 16px;
   border-radius: 0 0 14px 14px;
 }
 
-/* Main title */
 h1 {
   font-family: "Poppins", sans-serif;
   font-size: 2.6rem;
-  color: #2f5bff;
+  background: #c294bc;
+  color: #903684;
   text-align: center;
   letter-spacing: 0.5px;
   margin: 0 0 10px 0;
 }
 
-/* Section titles */
 h2 {
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
-  color: #2f5bff;
+  color: #9878a1;
   margin-top: 0;
 }
 
-/* Navigation — third font */
 .nav-list {
   list-style: none;
   display: flex;
@@ -48,26 +45,29 @@ h2 {
 }
 
 .nav-list a {
-  background-color: #eef2ff;
+  background-color: #d8bad9;
   padding: 6px 12px;
   border-radius: 999px;
-  border: 1px solid #dbe4ff;
+  border: 1px solid #422444;
   text-decoration: none;
-  color: #2f5bff;
+  color: #671773;
   font-weight: 500;
 }
 
-/* Sections */
+.nav-list a:hover {
+  background-color: #702589;
+  color: #5e2657;
+}
+
 section {
-  background-color: white;
+  background-color: rgb(232, 202, 230);
   padding: 22px;
   margin: 22px 0;
   border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(47, 91, 255, 0.08);
-  border: 1px solid #e3e9ff;
+  box-shadow: 0 6px 18px rgba(207, 171, 200, 0.08);
+  border: 1px solid #942a86;
 }
 
-/* Lists */
 ul {
   list-style: none;
   padding: 0;
@@ -75,27 +75,57 @@ ul {
 }
 
 ul li {
-  background: linear-gradient(180deg, #f3f6ff 0%, #e9eeff 100%);
+  background: #903684;
   margin-bottom: 10px;
   padding: 12px;
   border-radius: 10px;
-  border: 1px solid #dde5ff;
+  border: 1px solid #893e8e;
 }
 
-/* Links */
 a {
-  color: #2f5bff;
+  color: #8e7f8f;
   font-weight: 600;
   text-decoration: none;
 }
 
 a:hover {
+  color: #e3bad8;
   text-decoration: underline;
 }
 
-/* Connect section — flex layout */
+/* experience layout */
+#experience .experience-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #e4e8ff;
+}
+
+#experience .experience-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#experience .job-title,
+#experience .job-dates,
+#experience .job-desc {
+  margin: 0;
+}
+
+#experience .job-dates {
+  opacity: 0.75;
+  font-weight: 500;
+}
+
+#experience .job-desc {
+  margin-top: 0.5rem;
+  max-width: 65ch;
+  line-height: 1.5;
+}
+
+/* connect flex layout */
 #connect ul {
   display: flex;
+  justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
 }
@@ -103,3 +133,4 @@ a:hover {
 #connect ul li {
   margin-bottom: 0;
 }
+
