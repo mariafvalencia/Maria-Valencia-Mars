@@ -1,44 +1,136 @@
 body {
-  background-color: #f4f6fb;
-  color: #333;
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #bfd8ea 0%, #bca1c7 100%);
+  color: #86568e;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   margin: 0;
-  padding: 20px;
+  padding: 24px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: rgb(209, 221, 255);
+  z-index: 10;
+  border-bottom: 1px solid #5581b6;
+  padding: 16px;
+  border-radius: 0 0 14px 14px;
 }
 
 h1 {
-  font-size: 2.5rem;
-  color: #4a4aff;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.6rem;
+  background: #e9cbe5;
+  color: #be86b6;
   text-align: center;
-}
-
-section {
-  background-color: white;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
+  letter-spacing: 0.5px;
+  margin: 0 0 10px 0;
 }
 
 h2 {
+  font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
-  color: #222;
+  color: #a88baf;
+  margin-top: 0;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  padding: 0;
+  margin: 10px 0 0 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+}
+
+.nav-list a {
+  background-color: #d8bad9;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #e6c6e9;
+  text-decoration: none;
+  color: #96a6d3;
+  font-weight: 500;
+}
+
+.nav-list a:hover {
+  background-color: #d2bfe8;
+  color: #d6b0d1;
+}
+
+section {
+  background-color: rgb(232, 202, 230);
+  padding: 22px;
+  margin: 22px 0;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(207, 171, 200, 0.08);
+  border: 1px solid #bdbde6;
 }
 
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 ul li {
-  background-color: #eef0ff;
+  background: #dbb5d6;
   margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #893e8e;
 }
 
 a {
-  color: #4a4aff;
-  font-weight: bold;
+  color: #8e7f8f;
+  font-weight: 600;
   text-decoration: none;
+}
+
+a:hover {
+  color: #e3bad8;
+  text-decoration: underline;
+}
+
+/* experience layout */
+#experience .experience-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #e4e8ff;
+}
+
+#experience .experience-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#experience .job-title,
+#experience .job-dates,
+#experience .job-desc {
+  margin: 0;
+}
+
+#experience .job-dates {
+  opacity: 0.75;
+  font-weight: 500;
+}
+
+#experience .job-desc {
+  margin-top: 0.5rem;
+  max-width: 65ch;
+  line-height: 1.5;
+}
+
+/* connect flex layout */
+#connect ul {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+#connect ul li {
+  margin-bottom: 0;
 }
 
