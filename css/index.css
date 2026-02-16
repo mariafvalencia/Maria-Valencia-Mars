@@ -132,6 +132,19 @@ a:hover {
   margin-bottom: 0;
 }
 
+#skills ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+#skills ul li {
+  margin-bottom: 0;
+  text-align: center;
+  padding: 12px;
+}
+
 @media (max-width: 1024px) {
   body {
     padding: 18px;
@@ -162,6 +175,11 @@ a:hover {
   #experience .experience-item {
     border-bottom: none;
     padding: 0.75rem 0;
+  }
+
+  /* optional: slightly bigger skills tiles on tablet */
+  #skills ul {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 }
 
@@ -196,16 +214,10 @@ a:hover {
     flex-direction: column;
     gap: 10px;
   }
-}
-#skills ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-  margin-top: 12px;
+
+  /* skills stacks nicely on mobile */
+  #skills ul {
+    grid-template-columns: 1fr;
+  }
 }
 
-#skills ul li {
-  margin-bottom: 0;
-  text-align: center;
-  padding: 12px;
-}
