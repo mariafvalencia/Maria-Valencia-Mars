@@ -53,13 +53,14 @@ if (skillsList) {
     skillsList.appendChild(li);
   });
 }
-
-
-/* ========= Footer with Current Year ========= */
-
 const footer = document.createElement("footer");
-const year = new Date().getFullYear();
-footer.textContent = `© Maria Valencia ${year}`;
-
 document.body.appendChild(footer);
+const today = new Date();
+const thisYear = today.getFullYear();
+const footerEl = document.querySelector("footer");
+const copyright = document.createElement("p");
+copyright.innerHTML = `&copy; Maria Valencia ${thisYear}`;
+footerEl.appendChild(copyright);
+
+
 
