@@ -1,6 +1,5 @@
 const GITHUB_USERNAME = "mariafvalencia";
 
-/* ===== Projects (extra feature you already had) ===== */
 const projectSection = document.querySelector("#projects");
 const projectList = document.querySelector("#projects-list");
 
@@ -36,16 +35,18 @@ if (projectSection && projectList) {
         "<li>Sorry — projects could not load right now.</li>";
     });
 }
-const footerTag = document.createElement("footer");
-document.body.appendChild(footerTag);
 
+// ✅ Footer (use the one already in index.html)
 const today = new Date();
 const thisYear = today.getFullYear();
 
 const footer = document.querySelector("footer");
-const copyright = document.createElement("p");
-copyright.innerHTML = `&copy; Maria Valencia ${thisYear}`;
-footer.appendChild(copyright);
+if (footer) {
+  const copyright = document.createElement("p");
+  copyright.innerHTML = `&copy; Maria Valencia ${thisYear}`;
+  footer.appendChild(copyright);
+}
+
 const skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub", "Responsive Design"];
 
 const skillsSection = document.querySelector("#skills");
@@ -57,4 +58,47 @@ if (skillsList) {
     skill.innerText = skills[i];
     skillsList.appendChild(skill);
   }
+}
+
+const messageForm = document.forms["leave_message"];
+const messagesSection = document.querySelector("#messages");
+const messagesList = messagesSection ? messagesSection.querySelector("ul") : null;
+
+if (messageForm && messagesList) {
+  messageForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const usersName = event.target.usersName.value;
+    const usersEmail = event.target.usersEmail.value;
+    const usersMessage = event.target.usersMessage.value;
+
+    console.log(usersName, usersEmail, usersMessage);
+
+    const newMessage = document.createElement("li");
+
+    const nameLink = document.createElement("a");
+    nameLink.href = `mailto:${usersEmail}`;
+    nameLink.textContent = usersName;
+
+    const messageText = document.createElement("span");
+    messageText.textContent = `: ${usersMessage} `;
+
+    const removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.textContent = "remove";
+    removeButton.addEventListener("click", () => {
+      newMessage.remove();
+    });
+
+    newMessage.appendChild(nameLink);
+    newMessage.appendChild(messageText);
+    newMessage.appendChild(removeButton);
+
+    messagesList.appendChild(newMessage);
+
+    messageForm.reset();
+  });
+} else {
+  if (!messageForm) console.warn("Form with name='leave_message' not found.");
+  if (!messagesList) console.warn("Messages list (#messages ul) not found.");
 }
