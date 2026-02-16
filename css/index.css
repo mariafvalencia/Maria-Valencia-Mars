@@ -93,7 +93,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* experience layout */
 #experience .experience-item {
   padding: 1rem 0;
   border-bottom: 1px solid #e4e8ff;
@@ -122,7 +121,6 @@ a:hover {
   line-height: 1.5;
 }
 
-/* connect flex layout */
 #connect ul {
   display: flex;
   justify-content: center;
@@ -134,3 +132,80 @@ a:hover {
   margin-bottom: 0;
 }
 
+@media (max-width: 1024px) {
+  body {
+    padding: 18px;
+    color: #7b4b86;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    letter-spacing: 0.2px;
+  }
+
+  .nav-list {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  section {
+    padding: 18px;
+    margin: 18px 0;
+  }
+
+  #experience .experience-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  #experience .experience-item {
+    border-bottom: none;
+    padding: 0.75rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 12px;
+    border-radius: 0;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  section {
+    padding: 16px;
+    margin: 16px 0;
+  }
+
+  #experience .experience-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  #connect ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+#skills ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+#skills ul li {
+  margin-bottom: 0;
+  text-align: center;
+  padding: 12px;
+}
