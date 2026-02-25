@@ -93,6 +93,8 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Experience */
+
 #experience .experience-item {
   padding: 1rem 0;
   border-bottom: 1px solid #e4e8ff;
@@ -121,6 +123,8 @@ a:hover {
   line-height: 1.5;
 }
 
+/* Connect */
+
 #connect ul {
   display: flex;
   justify-content: center;
@@ -131,6 +135,8 @@ a:hover {
 #connect ul li {
   margin-bottom: 0;
 }
+
+/* Skills */
 
 #skills ul {
   display: grid;
@@ -144,6 +150,70 @@ a:hover {
   text-align: center;
   padding: 12px;
 }
+
+/* Leave a Message form */
+
+#leave-message form {
+  margin-top: 12px;
+}
+
+#leave-message label {
+  display: block;
+  margin: 10px 0 6px;
+  font-weight: 600;
+}
+
+#leave-message input,
+#leave-message textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #bdbde6;
+  font: inherit;
+  background: #f6e6f2;
+  color: #86568e;
+}
+
+#leave-message textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+#leave-message button[type="submit"] {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid #e6c6e9;
+  background-color: #d8bad9;
+  color: #96a6d3;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#leave-message button[type="submit"]:hover {
+  background-color: #d2bfe8;
+  color: #d6b0d1;
+}
+
+/* Messages remove button */
+
+#messages button {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid #e6c6e9;
+  background-color: #d8bad9;
+  color: #96a6d3;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#messages button:hover {
+  background-color: #d2bfe8;
+  color: #d6b0d1;
+}
+
+/* Tablet */
 
 @media (max-width: 1024px) {
   body {
@@ -177,11 +247,12 @@ a:hover {
     padding: 0.75rem 0;
   }
 
-  /* optional: slightly bigger skills tiles on tablet */
   #skills ul {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 }
+
+/* Mobile */
 
 @media (max-width: 600px) {
   header {
@@ -215,9 +286,18 @@ a:hover {
     gap: 10px;
   }
 
-  /* skills stacks nicely on mobile */
   #skills ul {
     grid-template-columns: 1fr;
   }
-}
 
+  #leave-message input,
+  #leave-message textarea {
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  #leave-message button[type="submit"],
+  #messages button {
+    padding: 14px 18px;
+  }
+}

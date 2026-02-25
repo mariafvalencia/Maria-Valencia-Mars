@@ -1,15 +1,13 @@
 const GITHUB_USERNAME = "mariafvalencia";
 
-const projectSection = document.querySelector("#projects");
+// Projects from GitHub
 const projectList = document.querySelector("#projects-list");
 
-if (projectSection && projectList) {
+if (projectList) {
   fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
     .then((response) => {
       if (!response.ok) {
-        throw new Error(
-          `GitHub API error: ${response.status} ${response.statusText}`
-        );
+        throw new Error("GitHub API error");
       }
       return response.json();
     })
@@ -29,42 +27,36 @@ if (projectSection && projectList) {
         projectList.appendChild(li);
       });
     })
-    .catch((error) => {
-      console.error("Error fetching repositories:", error);
-      projectList.innerHTML =
-        "<li>Sorry — projects could not load right now.</li>";
+    .catch(() => {
+      projectList.innerHTML = "<li>Projects could not load.</li>";
     });
 }
 
-// ✅ Footer (use the one already in index.html)
-const today = new Date();
-const thisYear = today.getFullYear();
-
+// Footer year
 const footer = document.querySelector("footer");
 if (footer) {
-  const copyright = document.createElement("p");
-  copyright.innerHTML = `&copy; Maria Valencia ${thisYear}`;
-  footer.appendChild(copyright);
+  const p = document.createElement("p");
+  p.innerHTML = `&copy; Maria Valencia ${new Date().getFullYear()}`;
+  footer.appendChild(p);
 }
 
+// Skills list
 const skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub", "Responsive Design"];
-
-const skillsSection = document.querySelector("#skills");
-const skillsList = skillsSection ? skillsSection.querySelector("ul") : null;
+const skillsList = document.querySelector("#skills ul");
 
 if (skillsList) {
-  for (let i = 0; i < skills.length; i++) {
-    const skill = document.createElement("li");
-    skill.innerText = skills[i];
-    skillsList.appendChild(skill);
-  }
+  skillsList.innerHTML = "";
+  skills.forEach((skill) => {
+    const li = document.createElement("li");
+    li.innerText = skill;
+    skillsList.appendChild(li);
+  });
 }
 
+// Message form
 const messageForm = document.forms["leave_message"];
-const messagesSection = document.querySelector("#messages");
-const messagesList = messagesSection ? messagesSection.querySelector("ul") : null;
 
-if (messageForm && messagesList) {
+if (messageForm) {
   messageForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -74,31 +66,27 @@ if (messageForm && messagesList) {
 
     console.log(usersName, usersEmail, usersMessage);
 
+    const messageSection = document.querySelector("#messages");
+    const messageList = messageSection.querySelector("ul");
+
     const newMessage = document.createElement("li");
-
-    const nameLink = document.createElement("a");
-    nameLink.href = `mailto:${usersEmail}`;
-    nameLink.textContent = usersName;
-
-    const messageText = document.createElement("span");
-    messageText.textContent = `: ${usersMessage} `;
+    newMessage.innerHTML = `
+      <a href="mailto:${usersEmail}">${usersName}</a>
+      <span>: ${usersMessage}</span>
+    `;
 
     const removeButton = document.createElement("button");
+    removeButton.innerText = "remove";
     removeButton.type = "button";
-    removeButton.textContent = "remove";
-    removeButton.addEventListener("click", () => {
-      newMessage.remove();
+
+    removeButton.addEventListener("click", (e) => {
+      const entry = e.target.parentNode;
+      entry.remove();
     });
 
-    newMessage.appendChild(nameLink);
-    newMessage.appendChild(messageText);
     newMessage.appendChild(removeButton);
+    messageList.appendChild(newMessage);
 
-    messagesList.appendChild(newMessage);
-
-    messageForm.reset();
+    event.target.reset();
   });
-} else {
-  if (!messageForm) console.warn("Form with name='leave_message' not found.");
-  if (!messagesList) console.warn("Messages list (#messages ul) not found.");
 }
