@@ -7,11 +7,13 @@ if (projectList) {
   fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("GitHub API error");
+        throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
       }
       return response.json();
     })
     .then((repositories) => {
+      console.log("repositories:", repositories);
+
       projectList.innerHTML = "";
 
       repositories.forEach((repo) => {
@@ -27,7 +29,8 @@ if (projectList) {
         projectList.appendChild(li);
       });
     })
-    .catch(() => {
+    .catch((error) => {
+      console.error("Projects could not load:", error);
       projectList.innerHTML = "<li>Projects could not load.</li>";
     });
 }
